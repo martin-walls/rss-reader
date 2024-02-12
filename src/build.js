@@ -70,8 +70,6 @@ async function build({ config, feeds, cache, writeCache = false }) {
                 const body = await response.text();
                 const contents =
                     typeof body === "string" ? await parser.parseString(body) : body;
-                const isRedditRSS =
-                    contents.feedUrl && contents.feedUrl.includes("reddit.com/r/");
 
                 if (!contents.items.length === 0)
                     throw Error(`Feed at ${url} contains no items.`);
@@ -97,21 +95,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
                                 : contents.link + item.link;
                     }
 
-                    // 3. parse subreddit feed comments
-                    if (
-                        isRedditRSS &&
-                        item.contentSnippet &&
-                        item.contentSnippet.startsWith("submitted by    ")
-                    ) {
-                        // matches anything between double quotes, like `<a href="matches this">foo</a>`
-                        const quotesContentMatch = /(?<=")(?:\\.|[^"\\])*(?=")/g;
-                        let [_submittedBy, _userLink, contentLink, commentsLink] =
-                            item.content.split("<a href=");
-                        item.link = contentLink.match(quotesContentMatch)[0];
-                        item.comments = commentsLink.match(quotesContentMatch)[0];
-                    }
-
-                    // 4. redirects
+                    // 3. redirects
                     if (config.redirects) {
                         // need to parse hostname methodically due to unreliable feeds
                         const url = new URL(item.link);
@@ -122,7 +106,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
                             item.link = `https://${redirect}${url.pathname}${url.search}`;
                     }
 
-                    // 5. Include title of blog/feed, useful for "all articles" view
+                    // 4. Include title of blog/feed, useful for "all articles" view
                     item.blogtitle = contents.title;
                 });
 
