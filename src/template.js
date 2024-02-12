@@ -8,7 +8,7 @@ const article = (item) => `
   <article class="item">
     <header class="item__header">
       <a href="${item.link}" target='_blank' rel='noopener norefferer nofollow'>
-        ${item.title}
+        ${item.title /* TODO: sanitize this in case it contains HTML elements */}
       </a>
     </header>
 
