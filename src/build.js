@@ -88,8 +88,6 @@ async function build({ config, feeds, cache, writeCache = false }) {
                 const contentType = response.headers.get("content-type").split(";")[0];
 
                 if (!CONTENT_TYPES.includes(contentType)) {
-                    console.log(response.headers.get("content-type"));
-                    console.log(await response.text());
                     throw Error(`Feed at ${url} has invalid content-type (${contentType}).`);
                 }
 
