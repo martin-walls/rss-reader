@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       tags:
-        description: 'tag'  
+        description: 'tag'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-22.04
