@@ -15,13 +15,12 @@ const article = (item) => `
     <small>
       ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : ''}
       <ul class="article-links">
+        <li>${item.blogtitle}</li>
         <li class="monospace">${item.timestamp || ''}</li>
         ${item.comments ? `
           <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
         ` : ''
         }
-        <li><a href="https://txtify.it/${item.link}" target='_blank' rel='noopener norefferer nofollow'>txtify</a></li>
-        <li><a href="https://archive.md/${item.link}" target='_blank' rel='noopener norefferer nofollow'>archive.md</a></li>
       </ul>
     </small>
   </article>
