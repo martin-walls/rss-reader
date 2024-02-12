@@ -25,12 +25,35 @@ const CONTENT_TYPES = [
     "text/xml",
 ];
 
+/**
+ * @typedef {object} Config
+ * @property {number} timezone_offset
+ * @property {{[hostname: string]: string}} [redirects]
+ */
+
+/**
+ * @type {Config}
+ */
 const config = readCfg("./src/config.json");
+
+/**
+ * @typedef {{[groupName: string]: string[]}} Feeds
+ */
+
+/**
+ * @type {Feeds}
+ */
 const feeds = USE_CACHE ? {} : readCfg("./src/feeds.json");
 const cache = USE_CACHE ? readCfg(CACHE_PATH) : {};
 
 await build({ config, feeds, cache, writeCache: WRITE });
 
+/**
+ * @param {object} params
+ * @param {Config} params.config
+ * @param {Feeds} params.feeds
+ * @param {boolean} params.writeCache
+ */
 async function build({ config, feeds, cache, writeCache = false }) {
     let allItems = cache.allItems || [];
     const parser = new Parser();
@@ -102,8 +125,9 @@ async function build({ config, feeds, cache, writeCache = false }) {
                         const tokens = url.hostname.split(".");
                         const host = tokens[tokens.length - 2];
                         const redirect = config.redirects[host];
-                        if (redirect)
+                        if (redirect) {
                             item.link = `https://${redirect}${url.pathname}${url.search}`;
+                        }
                     }
 
                     // 4. Include title of blog/feed, useful for "all articles" view
