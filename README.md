@@ -1,6 +1,8 @@
-# 🦉 Bubo Reader (Fork)
+# 🦉 Bubo RSS Reader (Fork)
 
 ![screenshot](./demo.png)
+
+TODO: re-write this README
 
 [Demo Site](https://kevinfiol.com/rss-reader/)
 
