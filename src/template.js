@@ -88,7 +88,7 @@ export const template = ({ allItems, groups, errors, now }) => `
         groups,
         ([groupName, feeds]) => `
         <section id="${groupName}">
-          <h2>${groupName}</h2>
+          <h1>${groupName}</h1>
 
           ${forEach(
             feeds,
@@ -117,7 +117,7 @@ export const template = ({ allItems, groups, errors, now }) => `
     <!-- Must come after all other sections, so that it can be shown by default
          using CSS. -->
       <section id="all-articles">
-        <h2>all articles</h2>
+        <h1>all articles</h1>
         ${forEach(allItems, (item) => article(item))}
       </section>
     </main>
