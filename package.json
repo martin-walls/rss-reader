@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "node src/build.js",
+    "build:watch": "watch 'npm run build' ./src ./output/static",
     "write": "node src/build.js --write",
     "cached": "node src/build.js --cached"
   },
@@ -15,5 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "rss-parser": "^3.6.3"
+  },
+  "devDependencies": {
+    "watch": "^1.0.2"
   }
 }
