@@ -5,6 +5,10 @@
   "blogs": [
     "https://danluu.com/atom.xml",
     "https://kevinfiol.com/atom.xml",
-    "https://fasterthanli.me/index.xml"
+    "https://fasterthanli.me/index.xml",
+    "https://www.joshwcomeau.com/rss.xml",
+    "https://www.pcloadletter.dev/feed/feed.xml",
+    "https://aschmelyun.substack.com/feed.xml",
+    "https://george.mand.is/feed.xml"
   ]
 }
