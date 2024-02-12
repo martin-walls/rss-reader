@@ -38,7 +38,7 @@ export const template = ({ allItems, groups, errors, now }) => `
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>🦉 reader</title>
+  <title>Reader</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -48,7 +48,6 @@ export const template = ({ allItems, groups, errors, now }) => `
 
     <div class="sidebar">
       <header>
-        <h1 class="inline" style="user-select: none;">🦉</h1>
         <ul class="group-selector">
           <li><a href="#all-articles">all articles</a></li>
           ${forEach(
