@@ -1,7 +1,7 @@
 const forEach = (arr, fn) => {
-  let str = '';
-  arr.forEach(i => str += fn(i) || '');
-  return str;
+    let str = "";
+    arr.forEach((i) => (str += fn(i) || ""));
+    return str;
 };
 
 const article = (item) => `
@@ -13,20 +13,25 @@ const article = (item) => `
     </header>
 
     <small>
-      ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : ''}
+      ${item.feedUrl
+        ? `<span class="item__feed-url monospace">${item.feedUrl}</span>`
+        : ""
+    }
       <ul class="article-links">
         <li>${item.blogtitle}</li>
-        <li class="monospace">${item.timestamp || ''}</li>
-        ${item.comments ? `
+        <li class="monospace">${item.timestamp || ""}</li>
+        ${item.comments
+        ? `
           <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
-        ` : ''
-        }
+        `
+        : ""
+    }
       </ul>
     </small>
   </article>
 `;
 
-export const template = ({ allItems, groups, errors, now }) => (`
+export const template = ({ allItems, groups, errors, now }) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,23 +51,31 @@ export const template = ({ allItems, groups, errors, now }) => (`
         <h1 class="inline" style="user-select: none;">🦉</h1>
         <ul class="group-selector">
           <li><a href="#all-articles">all articles</a></li>
-          ${forEach(groups, group => `
+          ${forEach(
+    groups,
+    (group) => `
             <li><a href="#${group[0]}">${group[0]}</a></li>
-          `)}
+          `,
+)}
         </ul>
       </header>
 
       <footer>
-        ${errors.length > 0 ? `
+        ${errors.length > 0
+        ? `
           <h2>Errors</h2>
           <p>There were errors trying to parse these feeds:</p>
           <ul>
-          ${forEach(errors, error => `
+          ${forEach(
+            errors,
+            (error) => `
             <li>${error}</li>
-          `)}
+          `,
+        )}
           </ul>
-        ` : ''
-        }
+        `
+        : ""
+    }
 
         <p>
           Last updated ${now}. Powered by <a href="https://github.com/kevinfiol/rss-reader">Bubo Reader</a>, a project by <a href="https://george.mand.is">George Mandis</a> and <a href="https://kevinfiol.com">Kevin Fiol</a>.
@@ -73,14 +86,18 @@ export const template = ({ allItems, groups, errors, now }) => (`
     <main>
       <section id="all-articles">
         <h2>all articles</h2>
-        ${forEach(allItems, item => article(item))}
+        ${forEach(allItems, (item) => article(item))}
       </section>
 
-      ${forEach(groups, ([groupName, feeds]) => `
+      ${forEach(
+        groups,
+        ([groupName, feeds]) => `
         <section id="${groupName}">
           <h2>${groupName}</h2>
 
-          ${forEach(feeds, feed => `
+          ${forEach(
+            feeds,
+            (feed) => `
             <details>
               <summary>
                 <span class="feed-title">${feed.title}</span>
@@ -90,14 +107,17 @@ export const template = ({ allItems, groups, errors, now }) => (`
                   </small>
                 </span>
                 <div class="feed-timestamp">
-                  <small>Latest: ${feed.items[0] && feed.items[0].timestamp || ''}</small>
+                  <small>Latest: ${(feed.items[0] && feed.items[0].timestamp) || ""
+                }</small>
                 </div>
               </summary>
-              ${forEach(feed.items, item => article(item))}
+              ${forEach(feed.items, (item) => article(item))}
             </details>
-          `)}
+          `,
+        )}
         </section>
-      `)}
+      `,
+    )}
 
         <div class="default-text">
           <p>🦉📚 welcome to bubo reader</p>
@@ -107,4 +127,4 @@ export const template = ({ allItems, groups, errors, now }) => (`
   </div>
 </body>
 </html>
-`);
+`;
