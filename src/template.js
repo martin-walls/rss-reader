@@ -49,7 +49,8 @@ export const template = ({ allItems, groups, errors, now }) => `
     <div class="sidebar">
       <header>
         <ul class="group-selector">
-          <li><a href="#all-articles">all articles</a></li>
+          <!-- "All articles" view is shown by default when no section is targeted -->
+          <li><a href="#">all articles</a></li>
           ${forEach(
     groups,
     (group) => `
@@ -83,11 +84,6 @@ export const template = ({ allItems, groups, errors, now }) => `
     </div>
 
     <main>
-      <section id="all-articles">
-        <h2>all articles</h2>
-        ${forEach(allItems, (item) => article(item))}
-      </section>
-
       ${forEach(
         groups,
         ([groupName, feeds]) => `
@@ -118,10 +114,12 @@ export const template = ({ allItems, groups, errors, now }) => `
       `,
     )}
 
-        <div class="default-text">
-          <p>🦉📚 welcome to bubo reader</p>
-          <p>select a feed group to get started</p>
-        </div>
+    <!-- Must come after all other sections, so that it can be shown by default
+         using CSS. -->
+      <section id="all-articles">
+        <h2>all articles</h2>
+        ${forEach(allItems, (item) => article(item))}
+      </section>
     </main>
   </div>
 </body>

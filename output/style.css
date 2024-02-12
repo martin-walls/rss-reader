@@ -161,10 +161,6 @@ summary:hover div {
   color: #aaa;
 }
 
-.feed-url {
-  font-size:;
-}
-
 .feed-timestamp {
   margin-left: 1.45rem;
 }
@@ -242,33 +238,27 @@ footer:hover {
   opacity: 1;
 }
 
-section {
-  z-index: 1;
-  /* ! Everything below is needed ! */
-  display: none;
-  height: 100%;
-  width: 100%;
-  background-color: var(--bg-color);
-}
-
 section > h2 {
   margin-top: 0;
   padding-top: 19px;
 }
 
-/* Show section that's currently selected */
-section:target {
-  display: block;
-}
-
-section:target ~ .default-text {
+/* Hide all sections initially */
+section {
   display: none;
 }
 
-.default-text {
-  text-align: center;
-  position: relative;
-  top: 5%;
-  font-family: monospace;
-  font-size: 2em;
+/* By default, show all articles; this will stay if no section is selected */
+#all-articles {
+  display: block;
+}
+
+/* If a section is selected, hide the all articles view */
+section:target ~ #all-articles {
+  display: none;
+}
+
+/* Show the section that's currently selected */
+section:target {
+  display: block;
 }
