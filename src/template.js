@@ -43,6 +43,9 @@ export const template = ({ allItems, groups, errors, now }) => `
 </head>
 <body>
   <div class="app">
+    <input type="checkbox" class="btn-hide-sidebar" id="btn-hide-sidebar" />
+    <label for="btn-hide-sidebar" class="btn-hide-sidebar-label monospace"></label>
+
     <div class="sidebar">
       <header>
         <ul class="group-selector">
