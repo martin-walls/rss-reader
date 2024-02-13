@@ -108,7 +108,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
                     // 1. try to normalize date attribute naming
                     const dateAttr =
                         item.pubDate || item.isoDate || item.date || item.published;
-                    item.timestamp = new Date(dateAttr).toLocaleDateString();
+                    item.timestamp = new Date(dateAttr).toLocaleDateString("en-GB");
 
                     // 2. correct link url if it lacks the hostname
                     if (item.link && item.link.split("http").length === 1) {
