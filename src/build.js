@@ -15,7 +15,7 @@ const WRITE = process.argv.includes("--write");
 const USE_CACHE = !WRITE && process.argv.includes("--cached");
 
 const CACHE_PATH = "./src/cache.json";
-const OUTFILE_PATH = "./output/reader/index.html";
+const OUTFILE_PATH = "./output/index.html";
 const CONTENT_TYPES = [
     "application/json",
     "application/atom+xml",

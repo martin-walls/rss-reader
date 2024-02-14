@@ -39,7 +39,7 @@ export const template = ({ allItems, groups, errors, now }) => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Reader</title>
-  <link rel="stylesheet" href="/reader/style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="app">

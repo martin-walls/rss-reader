@@ -1,5 +1,4 @@
 node_modules/*
 output/index.html
-output/reader/index.html
 cache.json
 data.json
