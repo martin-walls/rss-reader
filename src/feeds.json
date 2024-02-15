@@ -14,6 +14,11 @@
     "https://www.wave.com/en/blog/index.xml",
     "https://grdw.nl/atom.xml",
     "https://climate.benjames.io/posts/rss/",
-    "https://tonsky.me/atom.xml"
+    "https://tonsky.me/atom.xml",
+    "https://ersei.net/en/blog.atom",
+    "https://ersei.net/en/notes.atom",
+    "https://alexwlchan.net/atom.xml",
+    "https://computer.rip/rss.xml",
+    "https://blog.jim-nielsen.com/feed.xml"
   ]
 }
