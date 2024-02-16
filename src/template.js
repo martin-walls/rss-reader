@@ -1,3 +1,5 @@
+const DEPLOYMENT_URL = "https://rss-reader.martinwalls.com";
+
 const forEach = (arr, fn) => {
     let str = "";
     arr.forEach((i) => (str += fn(i) || ""));
@@ -39,7 +41,7 @@ export const template = ({ allItems, groups, errors, now }) => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Reader</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="${DEPLOYMENT_URL}/style.css">
 </head>
 <body>
   <div class="app">
