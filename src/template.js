@@ -1,4 +1,4 @@
-const DEPLOYMENT_URL = "https://rss-reader.martinwalls.com";
+const DEPLOYMENT_URL = "https://martin-walls.github.io/rss-reader";
 
 const forEach = (arr, fn) => {
     let str = "";
