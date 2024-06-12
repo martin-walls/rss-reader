@@ -1,7 +1,8 @@
 {
   "feeds": [
     "https://hnrss.org/frontpage?points=10&comments=5&count=35",
-    "https://ersei.net/en/notes.atom"
+    "https://ersei.net/en/notes.atom",
+    "https://bearblog.dev/discover/feed/"
   ],
   "blogs": [
     "https://danluu.com/atom.xml",
