@@ -6,7 +6,7 @@ on:
   schedule:
     # Run this script every day at 8am (UTC I think)
     # min hr day month day_of_week
-    - cron:  '0 8 * * *'
+    - cron:  '0 6 * * *'
   workflow_dispatch:
     inputs:
       tags:
