@@ -64,6 +64,7 @@
     "https://eieio.games/feed.xml",
     "https://neovim.io/news.xml",
     "https://claytonwramsey.com/blog/rss.xml",
-    "https://hamatti.org/feed/feed.xml"
+    "https://hamatti.org/feed/feed.xml",
+    "https://muffinman.io/atom.xml"
   ]
 }
