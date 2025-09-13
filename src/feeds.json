@@ -65,6 +65,7 @@
     "https://neovim.io/news.xml",
     "https://claytonwramsey.com/blog/rss.xml",
     "https://hamatti.org/feed/feed.xml",
-    "https://muffinman.io/atom.xml"
+    "https://muffinman.io/atom.xml",
+    "https://aresluna.org/main.rss"
   ]
 }
