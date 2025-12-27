@@ -1,0 +1,318 @@
+:root {
+  --font-size: 14px;
+  --font-family: system-ui, sans-serif;
+
+  --color: #111;
+  --bg-color: #fffff8;
+  --faded-bg: #f9f9f2;
+
+  --title-font-size: 16px;
+  --title-font-weight: 600;
+
+  --main-padding-right: 8rem;
+
+  --sidebar-width: 16rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: #ddd;
+    --bg-color: #151515;
+    --faded-bg: #1b1b1b;
+  }
+}
+
+.btn-hide-sidebar,
+.btn-hide-sidebar-label {
+  display: none;
+}
+
+@media screen and (max-width: 48rem) {
+  :root {
+    --main-padding-right: 0;
+  }
+
+  article.item {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .btn-hide-sidebar-label {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    opacity: 0.25;
+    text-decoration: underline;
+  }
+
+  .btn-hide-sidebar-label:hover {
+      opacity: 1;
+  }
+
+  .btn-hide-sidebar-label::after {
+    content: "hide menu";
+  }
+
+  .btn-hide-sidebar:checked ~ .btn-hide-sidebar-label::after {
+    content: "show menu";
+  }
+
+  .btn-hide-sidebar:checked ~ .sidebar {
+    display: none;
+  }
+
+  /* .menu-label, */
+  /* .menu-btn { */
+  /*   display: block !important; */
+  /*   position: absolute; */
+  /*   top: 0; */
+  /*   right: 0; */
+  /*   z-index: 99; */
+  /* } */
+
+  /* .menu-btn { */
+  /*   display: none !important; */
+  /* } */
+
+  /* .menu-label { */
+  /*   padding: 1rem 2rem; */
+  /*   background-color: var(--faded-bg); */
+  /* } */
+
+  /* .menu-label::after { */
+  /*   content: "groups"; */
+  /* } */
+
+  /* .menu-btn:checked ~ .sidebar { */
+  /*   display: block !important; */
+  /* } */
+
+  /* .menu-btn:checked ~ main { */
+  /*   display: none !important; */
+  /* } */
+
+  /* .menu-btn:checked ~ .menu-label::after { */
+  /*   content: "back"; */
+  /* } */
+
+
+  .sidebar > header > .group-selector {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar > header > .group-selector > li {
+    font-size: 1.2em;
+  }
+}
+
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: var(--details-translate, translateY(-0.5em));
+  }
+}
+
+body {
+  color: var(--color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  /* overflow: hidden; */
+}
+
+details[open] > *:not(summary),
+section {
+  animation: details-show 100ms ease-in-out;
+}
+
+h1,
+h2,
+h3 {
+  font-family: monospace;
+}
+
+a:link {
+  color: inherit;
+}
+
+a:visited {
+  color: #b58c8c;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+summary {
+  position: sticky;
+  top: 0;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+  user-select: none;
+  cursor: pointer;
+  font-family: monospace;
+  background-color: var(--bg-color);
+}
+
+summary:hover span,
+summary:hover div {
+  opacity: 0.75;
+}
+
+/* .menu-btn, */
+/* .menu-label { */
+/*   display: none; */
+/* } */
+
+.group-selector a,
+.group-selector a:visited {
+  color: inherit;
+  font-family: monospace;
+  line-height: 1.5em;
+}
+
+.feed-title {
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+}
+
+.feed-url,
+.feed-timestamp {
+  color: #aaa;
+}
+
+.feed-timestamp {
+  margin-left: 1.45rem;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.inline {
+  display: inline;
+}
+
+.app {
+  /* display: flex; */
+  /* gap: 2rem; */
+  /* padding: 0 0rem 1rem 1rem; */
+}
+
+.sidebar {
+  /* flex: 1; */
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* bottom: 0; */
+  /* width: var(--sidebar-width); */
+
+  padding-inline: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  padding-top: 1rem;
+}
+
+main {
+  /* flex: 5; */
+  /* height: 100vh; */
+  /* overflow-y: auto; */
+  padding-left: 1rem;
+  padding-right: var(--main-padding-right);
+}
+
+@media screen and (min-width: 48rem) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+  }
+
+  main {
+    padding-left: var(--sidebar-width);
+  }
+}
+
+article.item {
+  max-width: 85%;
+  padding: 0.15rem 0.75rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--faded-bg);
+}
+
+#all-articles > article.item {
+  margin-left: 0;
+}
+
+article.item header.item__header {
+  font-size: var(--title-font-size);
+}
+
+.item__feed-url {
+  opacity: 0.25;
+}
+
+ul.article-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.article-links > li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+footer {
+  opacity: 0.25;
+  font-size: 0.75em;
+}
+
+footer:hover {
+  opacity: 1;
+}
+
+section > h1 {
+  margin-top: 0;
+  padding-top: 19px;
+}
+
+/* Hide all sections initially */
+section {
+  display: none;
+}
+
+/* By default, show all articles; this will stay if no section is selected */
+#all-articles {
+  display: block;
+}
+
+/* If a section is selected, hide the all articles view */
+section:target ~ #all-articles {
+  display: none;
+}
+
+/* Show the section that's currently selected */
+section:target {
+  display: block;
+}
